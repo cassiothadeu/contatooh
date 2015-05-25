@@ -1,6 +1,6 @@
 {
   "name": "contatooh",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "authors": [
     "Cássio Thadeu <cassiothadeu@gmail.com>"
   ],
@@ -15,6 +15,7 @@
   "dependencies": {
     "angular": "1.3",
     "angular-route": "1.3",
-    "bootstrap": "3.3"
+    "bootstrap": "3.3",
+    "angular-resource": "1.3"
   }
 }
