@@ -10,10 +10,10 @@ module.exports = function (app) {
 			.then(
 				function(contatos) {
 					res.json(contatos);
-				},
-				function(erro) {
+				})
+				.then(null, function(erro) {
 					console.error(erro)
-					res.status(500).json(erro);
+					res.status(500).json({error: erro.message});
 				}
 			);
 	};
@@ -26,12 +26,11 @@ module.exports = function (app) {
 				function(contato) {
 					if (!contato) throw new Error("Contato não encontrado");
 					res.json(contato)
-				},
-				function(erro) {
+				})
+				.then(null, function(erro) {
 					console.log(erro);
-					res.status(404).json(erro)
-				}
-			);
+					res.status(404).json({error: erro.message});
+				});
 	};
 
 	controller.removeContato = function(req, res) {
@@ -41,8 +40,8 @@ module.exports = function (app) {
 			.then(
 				function() {
 					res.status(204).end();
-				},
-				function(erro) {
+				})
+				.then(null, function(erro) {
 					return console.error(erro);
 				}
 			);
@@ -58,10 +57,10 @@ module.exports = function (app) {
 				.then(
 					function(contato) {
 						res.json(contato);
-					},
-					function(erro) {
+					})
+					.then(null, function(erro) {
 						console.error(erro)
-						res.status(500).json(erro);
+						res.status(500).json({error: erro.message});
 					}
 				);
 		} else {
@@ -69,10 +68,10 @@ module.exports = function (app) {
 				.then(
 					function(contato) {
 						res.status(201).json(contato);
-					},
-					function(erro) {
+					})
+					.then(null, function(erro) {
 						console.log(erro);
-						res.status(500).json(erro);
+						res.status(500).json({error: erro.message});
 					}
 				);
 		}
