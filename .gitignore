@@ -1,2 +1,4 @@
 public/vendor
 node_modules
+dist
+.tmp
